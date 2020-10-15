@@ -1,0 +1,351 @@
+:root{
+  --mainColor:#fff;
+  --secondaryColor:#eaeaea;
+  --borderColor:#c1c1c1;
+  --mainText:black;
+  --secondaryText:black;
+  --highlight: linear-gradient(180deg,rgba(255,255,255,0) 50%, #FFD0AE 50%);
+  --highlight-p: linear-gradient(180deg,rgba(255,255,255,0) 75%, #71E5D7 50%);
+}
+
+[data-theme="dark"] {
+  --mainColor: #121212;
+  --secondaryColor:#212121;
+  --borderColor:#303030;
+  --mainText:rgba(255, 255, 255, 0.9);
+  --secondaryText:rgba(255, 255, 255, 0.9);
+  --highlight: linear-gradient(180deg,rgba(255,255,255,0) 50%, #56445D 50%);
+  --highlight-p: linear-gradient(180deg,rgba(255,255,255,0) 50%, #008080 50%);
+}
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #c1c1c1;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: #FFD0AE;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #121212;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #121212;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  display: inline;
+  justify-content: center;
+  color: #121212;
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  margin: 1.5em;
+  padding: 0.8em;
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: var(--mainColor);
+
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0);
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+
+}
+
+h1, h2, h3, h4, h5, h6, strong{
+  color: var(--mainText);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+}
+
+p, li, span, label, input, textarea{
+  color: var(--secondaryText);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+}
+
+p {
+  font-size: 1.25em;
+}
+
+h1 {font-size: 56px;}
+h2 {font-size: 36px;}
+h3 {font-size: 28px;}
+h4 {font-size: 24px;}
+h5 {font-size: 20px;}
+h6 {font-size: 16px;}
+
+a {
+  text-decoration: none;
+  color: #17a4b8;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  background-color: var(--mainColor);
+}
+
+.section{
+  background-color: var(--mainColor);
+  overflow: auto;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.greeting {
+  display: grid;
+  text-align: center;
+  align-content: center;
+  min-height: 10em;
+}
+
+.intro-wrapper {
+  background-color: var(--mainColor);
+  border: 1px solid var(--borderColor);
+  border-radius: 5px 5px 0 0;
+
+  -webkit-box-shadow: -1px 1px 4px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 1px 4px -1px rgba(0,0,0,0.75);
+  box-shadow: -1px 1px 4px -1px rgba(0,0,0,0.75);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+  'nav-wrapper nav-wrapper'
+  'left-column right-column'
+  ;
+}
+
+.nav-wrapper {
+  border-radius: 5px 5px 0 0;
+  grid-area: nav-wrapper;
+  border-bottom: 1px solid var(--borderColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--secondaryColor);
+}
+
+#navigation {
+  margin: 0;
+  padding: 10px;
+}
+
+#navigation li{
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.theme-switch-wrapper {
+  margin: 0;
+  padding: 10px;
+
+}
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: #66bb6a;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.dots-wrapper {
+  display: flex;
+  padding: 10px;
+}
+
+#dot-1 {
+  background-color: #FC6058;
+}
+
+#dot-2 {
+  background-color: #FEC02F;
+}
+
+#dot-3 {
+  background-color: #2ACA3E;
+}
+
+.browser-dot {
+  background-color: black;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  margin: 5px;
+
+  -webkit-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
+  box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
+}
+
+.left-column {
+  grid-area: left-column;
+  display: grid;
+  align-content: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+}
+
+#profile-pic {
+  display: block;
+  margin: 0 auto;
+
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+
+  -webkit-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
+  box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
+
+  border-radius: 5px;
+
+}
+
+.right-column {
+  grid-area: right-column;
+  display: grid;
+  align-content: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-radius: 5px;
+
+}
+
+#preview {
+  width: 500px;
+  padding:15px;
+  position: relative;
+}
+
+.highlight {
+  background: var(--highlight);
+}
+
+#interests {
+  background: var(--highlight-p);
+}
+
+@media screen and (max-width: 1200px) {
+  .container{
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .bm-burger-button {
+    position: fixed;
+    width: 26px;
+    height: 20px;
+    left: 20px;
+    top: 26px;
+  }
+
+  h1 {font-size: 46px;}
+
+  .intro-wrapper {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'nav-wrapper'
+      'left-column'
+      'right-column'
+    ;
+  }
+
+  .right-column {
+    justify-content: center;
+  }
+}
