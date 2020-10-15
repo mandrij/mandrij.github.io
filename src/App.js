@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from 'react';
+import Section from './components/Section'
+import {slide as Menu} from 'react-burger-menu'
+import './App.css'
+;
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+      <Menu itemListElement="div" disableAutoFocus>
+        <a id="home" className="menu-item" href="/"><span role="img" aria-label="home">🏠</span> Home</a>
+        <a id="about" className="menu-item" href="/"><span role="img" aria-label="resume">🧾</span> Resume</a>
+        <a id="contact" className="menu-item" href="/"><span role="img" aria-label="contact">✍️</span> Contact</a>
+      </Menu>
+      <Section></Section>
+      </div>
+    );
+  }
 }
 
 export default App;
