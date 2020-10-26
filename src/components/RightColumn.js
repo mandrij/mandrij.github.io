@@ -6,8 +6,7 @@ class RightColumn extends React.Component {
       <div className="right-column">
         <div id="preview">
           <h2 className="highlight">A little bit about me..</h2>
-          <p>I'm a 4th Year Computer Science student @ CarletonU.</p>
-          <p>My interests </p>
+          <p>I'm a 4th Year CS student @ CarletonU and I love to code!</p>
           <p>Currently seeking Winter '21 & Summer '21 positions!</p>
         </div>
       </div>

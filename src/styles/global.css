@@ -5,7 +5,7 @@
   --mainText:black;
   --secondaryText:black;
   --highlight: linear-gradient(180deg,rgba(255,255,255,0) 50%, #FFD0AE 50%);
-  --highlight-p: linear-gradient(180deg,rgba(255,255,255,0) 75%, #71E5D7 50%);
+  --highlight-p: linear-gradient(180deg,rgba(255,255,255,0) 50%, #71E5D7 50%);
 }
 
 [data-theme="dark"] {
@@ -18,18 +18,19 @@
   --highlight-p: linear-gradient(180deg,rgba(255,255,255,0) 50%, #008080 50%);
 }
 
+
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
   width: 36px;
   height: 30px;
-  left: 36px;
+  left: 20px;
   top: 36px;
 }
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #c1c1c1;
+  background:rgba(0, 0, 0, 0.2);
 }
 
 /* Color/shape of burger icon bars on hover*/
@@ -110,7 +111,7 @@ p, li, span, label, input, textarea{
 }
 
 p {
-  font-size: 1.25em;
+  font-size: 1.5em;
 }
 
 h1 {font-size: 56px;}
@@ -139,11 +140,19 @@ body {
 }
 
 .container {
-  width: 1200px;
+  display: grid;
+  width: 95%;
   margin: 0 auto;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+  'greeting'
+  'intro-wrapper'
+  ;
 }
 
 .greeting {
+  padding: 1em;
+  grid-area: greeting;
   display: grid;
   text-align: center;
   align-content: center;
@@ -151,6 +160,7 @@ body {
 }
 
 .intro-wrapper {
+  grid-area: intro-wrapper;
   background-color: var(--mainColor);
   border: 1px solid var(--borderColor);
   border-radius: 5px 5px 0 0;
@@ -178,18 +188,19 @@ body {
 
 #navigation {
   margin: 0;
-  padding: 10px;
+  padding: 0.5em;
 }
 
 #navigation li{
   display: inline-block;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 .theme-switch-wrapper {
+  display: inline-block;
   margin: 0;
-  padding: 10px;
+  padding: 0.5em;
 
 }
 .theme-switch {
@@ -243,7 +254,7 @@ input:checked + .slider:before {
 
 .dots-wrapper {
   display: flex;
-  padding: 10px;
+  padding: 0.8em;
 }
 
 #dot-1 {
@@ -263,7 +274,7 @@ input:checked + .slider:before {
   height: 15px;
   width: 15px;
   border-radius: 50%;
-  margin: 5px;
+  margin: 0.3em;
 
   -webkit-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
   -moz-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
@@ -274,17 +285,18 @@ input:checked + .slider:before {
   grid-area: left-column;
   display: grid;
   align-content: center;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  width: 100%;
+  padding-top: 2em;
+  padding-bottom: 2em;
 
 }
 
 #profile-pic {
   display: block;
   margin: 0 auto;
-
-  height: 400px;
-  width: 400px;
+  width: auto;
+  max-width: 60%;
+  height: auto;
   object-fit: cover;
 
   -webkit-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
@@ -299,16 +311,18 @@ input:checked + .slider:before {
   grid-area: right-column;
   display: grid;
   align-content: center;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  width: 100%;
+  padding-top: 2em;
+  padding-bottom: 2em;
   border-radius: 5px;
 
 }
 
 #preview {
-  width: 500px;
-  padding:15px;
-  position: relative;
+  padding: 1em;
+  margin-left: 5%;
+  margin-right: 5%;
+  position: relative;;
 }
 
 .highlight {
@@ -321,31 +335,51 @@ input:checked + .slider:before {
 
 @media screen and (max-width: 1200px) {
   .container{
-    width: 95%;
+    width: 90%;
   }
 }
 
-@media screen and (max-width: 1000px) {
-  .bm-burger-button {
-    position: fixed;
-    width: 26px;
-    height: 20px;
-    left: 20px;
-    top: 26px;
+@media screen and (max-width:961px)  {
+
+ .bm-burger-button {
+   position: absolute;
+   width: 26px;
+   height: 20px;
+   left: 20px;
+   top: 26px;
+ }
+
+ h1 {font-size: 46px;}
+
+ .intro-wrapper {
+   grid-template-columns: 1fr;
+   grid-template-areas:
+     'nav-wrapper'
+     'left-column'
+     'right-column'
+   ;
+ }
+
+ .container{
+   width: 80%;
+ }
+
+ .right-column {
+   justify-content: center;
+ }
+}
+
+@media only screen and (max-width:480px) {
+  h1 {font-size: 30px;}
+  h2 {font-size: 22px;}
+  p {font-size: 1em;}
+
+  .container{
+    width: 80%;
   }
 
-  h1 {font-size: 46px;}
+  .highlight {
 
-  .intro-wrapper {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      'nav-wrapper'
-      'left-column'
-      'right-column'
-    ;
-  }
-
-  .right-column {
-    justify-content: center;
+    background: linear-gradient(180deg,rgba(255,255,255,0) 70%, #FFD0AE 70%);
   }
 }
